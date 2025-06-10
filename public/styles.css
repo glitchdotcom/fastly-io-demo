@@ -1,0 +1,284 @@
+/******************************************************************************
+START Page structure and element resets
+******************************************************************************/
+
+/* A set of default style */
+:root {
+  /* Generic sizing for the page */
+  --wrapper-height: 80vh;
+  --avatar-max-width: 140px;
+
+  /* Fonts for different elements */
+  --font-family: sans-serif;
+  --font-family-header: sans-serif;
+  --font-family-list: monospace;
+
+  /* Colors you'll see cascade through the elements */
+
+  /* To set your own use custom-theme.css with `custom-theme` in settings.json `theme` property */
+  --color-bg: #bdbdbd; /* Used for the page body background */
+  --color-bg-alt: #ffffff; /* Used for social icons on hover */
+  --color-text-main: #000000; /* List text ann social icons on hover */
+  --color-primary: #ffffff; /* Headers and borders */
+
+  /* These are some Glitch colors you are welcome to use! */
+  --glitch-blue: #2800ff;
+  --glitch-blue-light: #5a78ff;
+  --glitch-pink: #ff7698;
+  --glitch-pink-light: #fec1ee;
+  --glitch-green: #05f293;
+  --glitch-green-light: #9be7d8;
+  --glitch-yellow: #ffff60;
+  --glitch-purple: #9480ff;
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+/* Page structure */
+body {
+  font-family: var(--font-family);
+  background-color: #f4eeec;
+  text-align: center;
+}
+
+.wrapper {
+  min-height: var(--wrapper-height);
+  place-items: center;
+  margin: 0.5rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 0;
+  padding: 0 0 0.75rem 0;
+  width: 60%;
+  flex-wrap: wrap;
+  max-width:400px;
+}
+
+img {
+  object-fit:contain;
+}
+
+/* Remix button styles */
+.btn--remix {
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+  padding: 0.8rem 1.75rem;
+  /*font sizes scaled by viewport https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/*/
+  font-size: clamp(0.9rem, 0.825rem + 0.3333vw, 1rem);
+  line-height: 1rem;
+  font-weight: 500;
+  height: 3rem;
+  align-items: center;
+  cursor: pointer;
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #4d1935;
+  white-space: nowrap;
+  flex-grow: 1;
+  text-align: center;
+}
+.btn--remix img {
+  position: relative;
+  top: 1px;
+  margin-right: 0.25rem;
+}
+.btn--remix:hover,
+.btn--remix:focus {
+  background-color: var(--glitch-yellow);
+}
+p {
+  margin:1rem 0 1rem 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-family-header);
+  font-weight: bold;
+  line-height: 1.1;
+  color: var(--color-text-main);
+}
+h1 {
+  margin-top:0.5rem;
+  margin-bottom:0.5rem;
+  display: inline-flex;
+  color: var(--glitch-blue);
+  justify-content: center;
+}
+h2 {
+  color:var(--glitch-blue-light);
+  margin:0.5rem;
+  font-weight:550;
+}
+#copy {
+  color:var(--glitch-blue);
+  display:block;
+}
+/* Link styles */
+a:not(.btn--remix):hover,
+a:not(.btn--remix):active,
+a:not(.btn--remix):focus {
+  background-color: var(--glitch-green);
+}
+a:not(.btn--remix):link,
+a:not(.btn--remix):visited {
+  text-decoration: none;
+  color: var(--glitch-blue);
+  font-weight:bold;
+}
+textarea {
+  padding:0.2rem;
+  background:white;
+  border:1px solid #00000033;
+  margin:0.5rem 0 1rem 0;
+  color:#333333;
+  width:100%;
+  max-width:800px;
+  word-break:break-all;
+}
+
+/* File opening only shows in origin */
+.fileopener {
+  cursor: pointer;
+  color: var(--glitch-blue);
+  font-weight: bold;
+  border-bottom: 3px solid var(--glitch-blue);
+}
+.fileopener:hover {
+  color: var(--glitch-pink);
+  border-bottom: 3px solid var(--glitch-pink);
+  background-color: var(--glitch-yellow);
+}
+.fo:not(.fileopener) {
+  color:var(--glitch-blue-light);
+}
+
+#before, #after {
+  flex-shrink:0;
+  align-self:center;
+  max-width:85vw;
+  max-height:500px;
+  margin:0.2rem 0 0rem 0;
+}
+
+#pics {
+  padding-bottom:2rem;
+}
+
+#pics p {
+  font-style:italic;
+  margin:0.2rem 0 1rem 0;
+  color:var(--glitch-pink);
+}
+#controls {
+  padding-bottom:1rem;
+}
+select {
+  padding:0.1rem;
+  border-radius:0.5rem;
+  margin:0.5rem 0 0.5rem 0;
+  text-align:center;
+}
+span {
+  color:var(--glitch-pink);
+}
+input[type='number'] {
+  width:4rem;
+}
+fieldset {
+  border:0;
+  box-sizing: border-box;
+  display:inline;
+}
+div.io {
+  border-bottom:1px solid #cccccc;
+}
+div.io:nth-last-of-type(1){
+  border:0;
+}
+label, fieldset span {
+  font-size:small;
+  line-height:1.5em;
+}
+fieldset span {
+  display:inline-block;
+  width:2rem;
+}
+input[type='range'] {
+  width:5rem;
+  padding:0;
+  margin:0;
+  border:0;
+  outline:none;
+  height:5px;
+  -webkit-appearance: none;
+}
+select, input {
+  font-size:small;
+  vertical-align:middle;
+}
+#images span {
+  line-height:2em;
+  display:block;
+}
+#thumbnails div.thumb:not(.empty) {
+  width:5rem;
+  height:5rem;
+  background-size:cover;
+  border:2px solid var(--glitch-pink);
+  cursor:pointer;
+  opacity:0.7;
+  margin:0 0.5rem 0.5rem 0;
+}
+div.empty {
+  width:5rem;
+  height:5rem;
+  background-size:cover;
+  border:2px dotted var(--glitch-purple);
+  color:var(--glitch-purple);
+  font-size:0.7em;
+  padding:0.3rem;
+  background-color:#ffffff99;
+}
+#thumbnails div.thumb:hover:not(.empty), #thumbnails div.thumb.current {
+  opacity:1.0;
+  border-color:var(--glitch-green);
+}
+#thumbnails {
+  display:flex;
+  flex-direction:row;
+  justify-content:start;
+  max-width:800px;
+  margin:0 auto;
+  flex-wrap:wrap;
+}
+input[type='button']{
+  background-color:black;
+  border:1px solid white;
+  color:white;
+  border-radius:0.5rem;
+  padding:0.2rem 0.5rem;
+  cursor:pointer;
+}
+input[type='button']:hover {
+  background:var(--glitch-yellow);
+  color:black;
+  border-color:black;
+}

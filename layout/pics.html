@@ -1,0 +1,83 @@
+<div id="pics">
+  <div id="controls">
+    <div class="io">
+      {{#each settings.controls}} {{#if color}}
+      <fieldset>
+        <label>{{label}}</label>
+        <input
+          type="color"
+          name="{{name}}"
+          value="{{default}}"
+          data-null="#000000"
+          data-default="{{default}}"
+          data-changed="false"
+          onchange="this.setAttribute('data-changed', 'true');"
+        />
+      </fieldset>
+      {{/if}} {{#if options}}
+      <select name="{{name}}" data-null="{{null}}" data-default="{{default}}">
+        <option value="null">--{{label}}--</option>
+        {{#each options}} {{#if value}}
+        <option value="{{value}}" {{#if (eq value ../default)}} selected {{/if}}>
+          {{title}}
+        </option>
+        {{else}}
+        <option value="{{this}}" {{#if (eq this ../default)}} selected {{/if}}>
+          {{this}}
+        </option>
+        {{/if}} {{/each}}
+      </select>
+      {{/if}} {{#if min}}
+      <fieldset>
+        <label>{{label}}</label>
+        <input
+          name="{{name}}"
+          type="range"
+          min="{{min}}"
+          max="{{max}}"
+          step="{{step}}"
+          value="{{default}}"
+          data-null="{{null}}"
+          data-default="{{default}}"
+        />
+        <span id="{{name}}">{{default}}</span>
+      </fieldset>
+      {{/if}} {{/each}}
+      <input id="reset" type="button" value="Reset All" />
+      <input id="defaults" type="button" value="Apply Defaults" />
+    </div>
+  </div>
+  {{#with settings.assets.[0]}}
+  <div id="picture">
+    <div id="images">
+      <img id="after" src="{{ iolink this.url }}" alt="{{ this.name }}" />
+      <span id="sizea">?</span>
+      <h2>
+        Original
+      </h2>
+      <img id="before" src="{{ this.url }}" alt="{{ this.name }}" />
+      <span id="sizeb">?</span>
+      <span id="copy"
+        >Click to copy the URL and use the image in your site:</span
+      >
+      <textarea
+        rows="3"
+        readonly="readonly"
+        onclick="this.select(); document.execCommand('copy');"
+      >
+      {{ iolink this.url }}
+      </textarea>
+    </div>
+  </div>
+  {{/with}}
+  <div id="thumbnails">
+    {{#each settings.assets}}
+    <div
+      class="thumb {{#if @first}} current {{/if}}"
+      data-url="{{ this.url }}"
+      style="background-image:url({{ this.thumbnail }})"
+    ></div>
+    {{/each}}
+    <div class="thumb empty">Add more in your project Assets</div>
+  </div>
+</div>
