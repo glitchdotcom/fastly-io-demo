@@ -60,10 +60,6 @@ document.querySelectorAll(".thumb:not(.empty)").forEach((t) => {
       .forEach((t) => t.classList.remove("current"));
     t.classList.add("current");
     before.src = t.dataset.url;
-    after.src = t.dataset.url.replace(
-      "cdn.glitch.global",
-      "images.glitch.global"
-    );
     updatePic();
   });
 });
