@@ -40,13 +40,13 @@ This is a generated static site using <a href="https://vite.dev/" target="_blank
 
 ← `index.html`: This is the main page template for your site with handlebars syntax for importing the data you specify in `settings.json` using the structures in `layout/`. 
 
-← `settings.json`: Settings for your site including the IO parameters and an optional array for pics you uploaded into other Glitch projects.
+← `settings.json`: Settings for your site including the IO parameters and an array for pics to include.
 
 ← `layout/pics.html`: The image controls and thumbnails in the page.
 
 ← `public/style.css`: Stylesheet for your site.
 
-← `public/helpers.js`: Glitch helper functions for this project.
+← `public/helpers.js`: Helper functions for this project.
 
 ← `public/`: Also includes your image assets.
 
