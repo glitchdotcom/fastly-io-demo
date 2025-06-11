@@ -4,6 +4,7 @@ import handlebars from "vite-plugin-handlebars";
 import settings from "./settings.json";
 
 // Read the glitch assets file
+/*
 const fs = require("fs");
 const data = fs
   .readFileSync("./.glitch-assets")
@@ -17,20 +18,22 @@ const pics = data.filter(
 );
 // We won't display pics marked as deleted
 const deleted = data.filter((img) => img && img.deleted).map((d) => d.uuid);
+*/
 // We also include any pics added in settings json
-let added = settings.pics;
-added.forEach((a) => {
+let pics = settings.pics;
+/*added.forEach((a) => {
   let lastSlash = a.url.lastIndexOf("/");
   a.thumbnail =
     a.url.substring(0, lastSlash + 1) +
     "thumbnails%2F" +
     a.url.substring(lastSlash + 1);
   a.name = a.url.substring(lastSlash + 1).split("?")[0];
-});
-pics.push(...added);
+});*/
+//let pics = [];
+//pics.push(...added);
 // Show most recent first
 let assets = pics
-  .filter((img) => !deleted.includes(img.uuid))
+//  .filter((img) => !deleted.includes(img.uuid))
   .sort((a, b) => {
     if (a.date > b.date) {
       return -1;
@@ -45,9 +48,9 @@ export default defineConfig({
     handlebars({
       partialDirectory: resolve(__dirname, "layout"),
       helpers: {
-        iolink: (url) => {
+/*        iolink: (url) => {
           return url.replace("cdn.glitch.global", "images.glitch.global") + "?";
-        },
+        },*/
         eq: (a, b) => {
           return a == b;
         },
