@@ -108,7 +108,7 @@ getSize(after);
 updatePic();
 
 try {
-  if (window.location.hostname.indexOf("github")>-1) {
+  if (window.location.hostname.indexOf("github.")>-1) {
     document.getElementById("origin").style.display="block";
     document.getElementById("edge").style.display="none";
   }
