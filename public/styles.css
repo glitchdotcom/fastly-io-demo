@@ -21,15 +21,6 @@ START Page structure and element resets
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
 
-  /* These are some Glitch colors you are welcome to use! */
-  --glitch-blue: #2800ff;
-  --glitch-blue-light: #5a78ff;
-  --glitch-pink: #ff7698;
-  --glitch-pink-light: #fec1ee;
-  --glitch-green: #05f293;
-  --glitch-green-light: #9be7d8;
-  --glitch-yellow: #ffff60;
-  --glitch-purple: #9480ff;
 }
 
 /* Basic page style resets */
@@ -100,7 +91,7 @@ img {
 }
 .btn--remix:hover,
 .btn--remix:focus {
-  background-color: var(--glitch-yellow);
+  background-color: yellow;
 }
 p {
   margin:1rem 0 1rem 0;
@@ -119,28 +110,28 @@ h1 {
   margin-top:0.5rem;
   margin-bottom:0.5rem;
   display: inline-flex;
-  color: var(--glitch-blue);
+  color: darkred;
   justify-content: center;
 }
 h2 {
-  color:var(--glitch-blue-light);
   margin:0.5rem;
+  color:gray;
   font-weight:550;
 }
 #copy {
-  color:var(--glitch-blue);
+  color:blue;
   display:block;
 }
 /* Link styles */
 a:not(.btn--remix):hover,
 a:not(.btn--remix):active,
 a:not(.btn--remix):focus {
-  background-color: var(--glitch-green);
+  background-color: green;
 }
 a:not(.btn--remix):link,
 a:not(.btn--remix):visited {
   text-decoration: none;
-  color: var(--glitch-blue);
+  color: blue;
   font-weight:bold;
 }
 textarea {
@@ -152,22 +143,6 @@ textarea {
   width:100%;
   max-width:800px;
   word-break:break-all;
-}
-
-/* File opening only shows in origin */
-.fileopener {
-  cursor: pointer;
-  color: var(--glitch-blue);
-  font-weight: bold;
-  border-bottom: 3px solid var(--glitch-blue);
-}
-.fileopener:hover {
-  color: var(--glitch-pink);
-  border-bottom: 3px solid var(--glitch-pink);
-  background-color: var(--glitch-yellow);
-}
-.fo:not(.fileopener) {
-  color:var(--glitch-blue-light);
 }
 
 #before, #after {
@@ -185,7 +160,7 @@ textarea {
 #pics p {
   font-style:italic;
   margin:0.2rem 0 1rem 0;
-  color:var(--glitch-pink);
+  color:red;
 }
 #controls {
   padding-bottom:1rem;
@@ -197,7 +172,7 @@ select {
   text-align:center;
 }
 span {
-  color:var(--glitch-pink);
+  color:red;
 }
 input[type='number'] {
   width:4rem;
@@ -242,7 +217,7 @@ select, input {
   width:5rem;
   height:5rem;
   background-size:cover;
-  border:2px solid var(--glitch-pink);
+  border:2px solid red;
   cursor:pointer;
   opacity:0.7;
   margin:0 0.5rem 0.5rem 0;
@@ -251,15 +226,15 @@ div.empty {
   width:5rem;
   height:5rem;
   background-size:cover;
-  border:2px dotted var(--glitch-purple);
-  color:var(--glitch-purple);
+  border:2px dotted darkblue;
+  color:darkblue;
   font-size:0.7em;
   padding:0.3rem;
   background-color:#ffffff99;
 }
 #thumbnails div.thumb:hover:not(.empty), #thumbnails div.thumb.current {
   opacity:1.0;
-  border-color:var(--glitch-green);
+  border-color:green;
 }
 #thumbnails {
   display:flex;
@@ -278,7 +253,7 @@ input[type='button']{
   cursor:pointer;
 }
 input[type='button']:hover {
-  background:var(--glitch-yellow);
+  background:yellow;
   color:black;
   border-color:black;
 }
