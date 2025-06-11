@@ -48,9 +48,9 @@ export default defineConfig({
     handlebars({
       partialDirectory: resolve(__dirname, "layout"),
       helpers: {
-/*        iolink: (url) => {
-          return url.replace("cdn.glitch.global", "images.glitch.global") + "?";
-        },*/
+        iolink: (url) => {
+          return url + "?";
+        },
         eq: (a, b) => {
           return a == b;
         },
