@@ -111,33 +111,3 @@ getSize(before);
 getSize(after);
 updatePic();
 
-// ----- GLITCH STARTER PROJECT HELPER CODE -----
-
-/** 
-  This code makes the buttons in the Glitch preview open files in the editor 
-*/
-try {
-  if (
-    window.self === window.top ||
-    window.location.ancestorOrigins.length > 1
-  ) {
-    let fileopeners = Array.from(document.getElementsByClassName("fileopener"));
-    fileopeners.forEach((fo) => {
-      fo.classList.remove("fileopener");
-    });
-  }
-} catch (e) {}
-// Open file when the link in the preview is clicked
-const goto = (file, line) => {
-  window.parent.postMessage(
-    { type: "glitch/go-to-line", payload: { filePath: file, line: line } },
-    "*"
-  );
-};
-// Get the file opening button from its class name
-const filer = document.querySelectorAll(".fileopener");
-filer.forEach((f) => {
-  f.onclick = () => {
-    goto(f.dataset.file, f.dataset.line);
-  };
-});
