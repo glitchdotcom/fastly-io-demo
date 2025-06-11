@@ -126,7 +126,7 @@ h2 {
 a:not(.btn--remix):hover,
 a:not(.btn--remix):active,
 a:not(.btn--remix):focus {
-  background-color: green;
+  background-color: yellow;
 }
 a:not(.btn--remix):link,
 a:not(.btn--remix):visited {

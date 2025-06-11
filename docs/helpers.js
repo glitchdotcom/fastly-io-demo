@@ -107,3 +107,13 @@ getSize(before);
 getSize(after);
 updatePic();
 
+try {
+  if (window.location.hostname.indexOf("github")>-1) {
+    document.getElementById("origin").style.display="block";
+    document.getElementById("edge").style.display="none";
+  }
+  else {
+    document.getElementById("origin").style.visibility="none";
+    document.getElementById("edge").style.visibility="block";
+  }
+} catch (e) {}
