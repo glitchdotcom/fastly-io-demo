@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IO</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="IO demo" />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.me/project-avatar/13983959-5674-4c64-8eee-853e51720a12.png?2024-10-29T11:10:54.753Z"
+    />
+    <meta
+      name="twitter:image"
+      content="https://cdn.glitch.me/project-avatar/13983959-5674-4c64-8eee-853e51720a12.png?2024-10-29T11:10:54.753Z"
+    />
+    <meta name="twitter:title" content="IO demo" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <script src="/helpers.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <h1>Fastly Image Optimizer</h1>
+        <div id="pics">
+          <div id="controls">
+            <div class="io">
+                
+              <select name="optimize" data-null="null" data-default="high">
+                <option value="null">--Optimize--</option>
+                         <option value="low" >
+                  low
+                </option>
+                          <option value="medium" >
+                  medium
+                </option>
+                          <option value="high"  selected >
+                  high
+                </option>
+                 
+              </select>
+                  
+              <select name="auto" data-null="null" data-default="null">
+                <option value="null">--Auto--</option>
+                         <option value="avif" >
+                  avif
+                </option>
+                          <option value="webp" >
+                  webp
+                </option>
+                 
+              </select>
+                   
+              <fieldset>
+                <label>Quality</label>
+                <input
+                  name="quality"
+                  type="range"
+                  min="5"
+                  max="100"
+                  step="5"
+                  value="85"
+                  data-null="85"
+                  data-default="85"
+                />
+                <span id="quality">85</span>
+              </fieldset>
+                
+              <fieldset>
+                <label>Background</label>
+                <input
+                  type="color"
+                  name="bg-color"
+                  value="#00ffff"
+                  data-null="#000000"
+                  data-default="#00ffff"
+                  data-changed="false"
+                  onchange="this.setAttribute('data-changed', 'true');"
+                />
+              </fieldset>
+                   
+              <select name="format" data-null="null" data-default="null">
+                <option value="null">--Format--</option>
+                 
+                <option value="auto" >
+                  Auto
+                </option>
+          
+                <option value="gif" >
+                  GIF
+                </option>
+          
+                <option value="png" >
+                  PNG
+                </option>
+          
+                <option value="png8" >
+                  PNG (8-bit)
+                </option>
+          
+                <option value="jpg" >
+                  JPEG
+                </option>
+          
+                <option value="pjpg" >
+                  JPEG (Progressive)
+                </option>
+          
+                <option value="jpegxl" >
+                  JPEGXL
+                </option>
+          
+                <option value="webp" >
+                  WebP
+                </option>
+         
+              </select>
+                  
+              <select name="dpr" data-null="null" data-default="null">
+                <option value="null">--DPR--</option>
+                         <option value="1.5" >
+                  1.5
+                </option>
+                          <option value="2" >
+                  2
+                </option>
+                          <option value="3" >
+                  3
+                </option>
+                 
+              </select>
+                  
+              <select name="orient" data-null="null" data-default="l">
+                <option value="null">--Orient--</option>
+                 
+                <option value="r" >
+                  Rotate right
+                </option>
+          
+                <option value="l"  selected >
+                  Rotate left
+                </option>
+          
+                <option value="v" >
+                  Vertical flip
+                </option>
+          
+                <option value="h" >
+                  Horizontal flip
+                </option>
+          
+                <option value="vh" >
+                  Flip both ways
+                </option>
+         
+              </select>
+                  
+              <select name="crop" data-null="null" data-default="1:1">
+                <option value="null">--Crop--</option>
+                         <option value="16:9" >
+                  16:9
+                </option>
+                          <option value="4:3" >
+                  4:3
+                </option>
+                          <option value="3:2" >
+                  3:2
+                </option>
+                          <option value="1:1"  selected >
+                  1:1
+                </option>
+                 
+              </select>
+                  
+              <select name="fit" data-null="null" data-default="null">
+                <option value="null">--Fit--</option>
+                 
+                <option value="bounds" >
+                  Bounds
+                </option>
+          
+                <option value="cover" >
+                  Cover
+                </option>
+         
+              </select>
+                   
+              <fieldset>
+                <label>Trim</label>
+                <input
+                  name="trim"
+                  type="range"
+                  min="0.0"
+                  max="0.45"
+                  step="0.05"
+                  value="0"
+                  data-null="0"
+                  data-default="0"
+                />
+                <span id="trim">0</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Width</label>
+                <input
+                  name="width"
+                  type="range"
+                  min="0.0"
+                  max="1.0"
+                  step="0.05"
+                  value="1.0"
+                  data-null="1"
+                  data-default="1.0"
+                />
+                <span id="width">1.0</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Height</label>
+                <input
+                  name="height"
+                  type="range"
+                  min="0.0"
+                  max="1.0"
+                  step="0.05"
+                  value="0.5"
+                  data-null="1"
+                  data-default="0.5"
+                />
+                <span id="height">0.5</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Pad</label>
+                <input
+                  name="pad"
+                  type="range"
+                  min="0.0"
+                  max="0.95"
+                  step="0.05"
+                  value="0.05"
+                  data-null="0"
+                  data-default="0.05"
+                />
+                <span id="pad">0.05</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Blur</label>
+                <input
+                  name="blur"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="5"
+                  value="0"
+                  data-null="0"
+                  data-default="0"
+                />
+                <span id="blur">0</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Brightness</label>
+                <input
+                  name="brightness"
+                  type="range"
+                  min="-100"
+                  max="100"
+                  step="5"
+                  value="0"
+                  data-null="0"
+                  data-default="0"
+                />
+                <span id="brightness">0</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Contrast</label>
+                <input
+                  name="contrast"
+                  type="range"
+                  min="-100"
+                  max="100"
+                  step="5"
+                  value="20"
+                  data-null="0"
+                  data-default="20"
+                />
+                <span id="contrast">20</span>
+              </fieldset>
+                  
+              <fieldset>
+                <label>Saturation</label>
+                <input
+                  name="saturation"
+                  type="range"
+                  min="-100"
+                  max="100"
+                  step="5"
+                  value="50"
+                  data-null="0"
+                  data-default="50"
+                />
+                <span id="saturation">50</span>
+              </fieldset>
+               
+              <input id="reset" type="button" value="Reset All" />
+              <input id="defaults" type="button" value="Apply Defaults" />
+            </div>
+          </div>
+          <div id="picture">
+            <div id="images">
+              <img id="after" src="officechat.jpeg" alt="" />
+              <span id="sizea">?</span>
+              <h2>
+                Original
+              </h2>
+              <img id="before" src="officechat.jpeg" alt="" />
+              <span id="sizeb">?</span>
+              <span id="copy"
+                >Click to copy the URL and use the image in your site:</span
+              >
+              <textarea
+                rows="3"
+                readonly="readonly"
+                onclick="this.select(); document.execCommand('copy');"
+              >
+              officechat.jpeg?
+              </textarea>
+            </div>
+          </div>
+          <div id="thumbnails">
+            <div
+              class="thumb  current "
+              data-url="officechat.jpeg"
+              style="background-image:url(officechat.jpeg)"
+            ></div>
+            <div
+              class="thumb "
+              data-url="gauge.png"
+              style="background-image:url(gauge.png)"
+            ></div>
+            <div
+              class="thumb "
+              data-url="animation.gif"
+              style="background-image:url(animation.gif)"
+            ></div>
+            <div class="thumb empty">Add your own by forking the project</div>
+          </div>
+        </div>
+        <p>
+          To transform your own pics –
+          <a
+            href="https://glitch.com/edit/#!/remix/fastly-io-demo"
+            target="_top"
+            >Fork</a
+          >
+          the project, deploy it to GitHub Pages, add your images in <code>/public</code>, and set up a Fastly CDN service with <a href="https://www.fastly.com/documentation/solutions/tutorials/optimize-images/">Image Optimizer</a> enabled!
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a
+        class="btn--remix"
+        target="_top"
+        href="https://github.com/glitchdotcom/fastly-io-demo/"
+      >
+        🚧 Fork this project
+      </a>
+    </footer>
+  </body>
+</html>
