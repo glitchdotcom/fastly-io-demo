@@ -113,7 +113,7 @@ try {
     document.getElementById("edge").style.display="none";
   }
   else {
-    document.getElementById("origin").style.visibility="none";
-    document.getElementById("edge").style.visibility="block";
+    document.getElementById("origin").style.display="none";
+    document.getElementById("edge").style.display="block";
   }
 } catch (e) {}
